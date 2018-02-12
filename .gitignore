@@ -1,0 +1,11 @@
+*__pycache__*
+venv/
+*.sqlite3
+*.swp
+media/
+.coverage
+htmlcov/
+.pytest_cache/
+.idea
+*.mo
+*.pot

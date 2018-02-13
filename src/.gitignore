@@ -9,3 +9,5 @@ htmlcov/
 .idea
 *.mo
 *.pot
+.build/
+static/

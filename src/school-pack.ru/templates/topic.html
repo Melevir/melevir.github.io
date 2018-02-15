@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    {% block topic_name %}{% endblock %}
+    <a href="/">←&nbsp;к&nbsp;списку&nbsp;уроков</a>
+  </h1>
+
+  {% block topic_content %}{% endblock %}
+{% endblock %}

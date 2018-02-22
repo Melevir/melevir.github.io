@@ -56,3 +56,8 @@ p {
     margin-bottom: 5px;
     margin-top: 15px;
 }
+
+.danger_note {
+    border-left: .3rem solid red;
+    padding-left: 30px;
+}

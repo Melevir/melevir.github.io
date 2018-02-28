@@ -61,3 +61,36 @@ p {
     border-left: .3rem solid red;
     padding-left: 30px;
 }
+
+.badge {
+    background-color: #9b4dca;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+    font-size: small;
+    vertical-align: super;
+}
+
+.badge_wrapper:hover {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #9b3dca;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.badge_wrapper:hover>.badge {
+    float: left;
+    margin-right: 5px;
+    margin-top: -1px;
+}
+
+.badge_wrapper>.text {
+    display: none;
+    color: #606c76;
+    font-size: 16px;
+}
+
+.badge_wrapper:hover>.text {
+    display: block;
+}

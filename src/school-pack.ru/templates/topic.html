@@ -6,5 +6,7 @@
     <a href="/">←&nbsp;к&nbsp;списку&nbsp;уроков</a>
   </h1>
 
-  {% block topic_content %}{% endblock %}
+  <div class="topic_content" data-topic-id="{% block topic_id %}{% endblock %}">
+    {% block topic_content %}{% endblock %}
+  </div>
 {% endblock %}

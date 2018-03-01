@@ -104,3 +104,24 @@ p {
     border-bottom: 1px dotted #9b3dca;
     color: #9b3dca;
 }
+
+.got_it_btn {
+    border-bottom: 1px dotted #9b3dca;
+    color: #9b3dca;
+    font-size: small;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+li:before {
+    content: '– ';
+}
+
+li.success:before {
+    content: '✓ ';
+    color: green;
+}

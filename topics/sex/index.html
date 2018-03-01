@@ -57,7 +57,8 @@
       и вообще лучше бы читать классическую литературу.
     </p>
     <p>
-      Мы считаем, что эти знания сильно нужнее большинства школьных предметов.
+      Мы считаем, что эти знания сильно важнее большинства школьных предметов: сексом занимается
+      куда больше людей, чем, к примеру, органической химией.
       Надеемся, что ты воспользуешься этими знаниями правильно.
     </p>
     <p>
@@ -90,18 +91,6 @@
     <li><a href="https://www.youtube.com/watch?v=p4s0E6WwH40" target="_blank"><i class="fab fa-youtube"></i> 10 мифов о СПИДе. Татьяна Понкратова</a>.</li>
   </ul>
 
-  <h4 class="subtopic">ЛГБТ</h4>
-  <p>
-    Не всем девочкам нравятся мальчики и не всем мальчикам – девочки. Что бы не говорили по ТВ, это нормально.
-    А вот воротить нос и не разбираться в теме очень недальновидно, а иногда и вредно.
-  </p>
-  <ul>
-    <li><a href="http://illuminator.info/home/gomoseksualnost-norma-ili-otklonenie" target="_blank">Гомосексуальность: норма или отклонение</a>.</li>
-    <li><a href="http://illuminator.info/home/homophobia" target="_blank">Гомофобия: кто и почему не любит гомосексуалов</a>.</li>
-    <li><a href="http://www.wonderzine.com/wonderzine/life/life/217975-gender" target="_blank">Словарь важных гендерных терминов</a>.</li>
-    <li><a href="https://www.youtube.com/watch?v=guB1jEA_UIs" target="_blank"><i class="fab fa-youtube"></i> Сексуальная ориентация. Факторы формирования</a>.</li>
-  </ul>
-
   <h4 class="subtopic">Согласие и насилие</h4>
   <p>
     Если ты собираешься заниматься сексом, целовать или трогать кого-то, хорошо бы понимать, что можно, а что нельзя.
@@ -115,6 +104,32 @@
     <li><a href="http://www.wonderzine.com/wonderzine/life/life/222123-consent" target="_blank">Что на самом деле значит принцип согласия</a>.</li>
   </ul>
 
+  <h4 class="subtopic">
+    ЛГБТ
+    <span class="badge_wrapper">
+      <span class="badge">18+</span>
+      <span class="text">
+        Согласно статье 6.21 КоАП РФ, запрещено «пропагандировать нетрадиционные сексуальные отношения среди несовершеннолетних».
+      </span>
+    </span>
+
+  </h4>
+  <div class="hider">
+    <span class="hider_btn">Мне есть 18 лет</span>
+    <div class="hider_content">
+      <p>
+        Не всем девочкам нравятся мальчики и не всем мальчикам – девочки. Что бы не говорили по ТВ, это нормально.
+        А вот воротить нос и не разбираться в теме очень недальновидно, а иногда и вредно.
+      </p>
+      <ul>
+        <li><a href="http://illuminator.info/home/gomoseksualnost-norma-ili-otklonenie" target="_blank">Гомосексуальность: норма или отклонение</a>.</li>
+        <li><a href="http://illuminator.info/home/homophobia" target="_blank">Гомофобия: кто и почему не любит гомосексуалов</a>.</li>
+        <li><a href="http://www.wonderzine.com/wonderzine/life/life/217975-gender" target="_blank">Словарь важных гендерных терминов</a>.</li>
+        <li><a href="https://www.youtube.com/watch?v=guB1jEA_UIs" target="_blank"><i class="fab fa-youtube"></i> Сексуальная ориентация. Факторы формирования</a>.</li>
+      </ul>
+    </div>
+  </div>
+
 
         <div class="footer row">
           <div class="column">
@@ -127,5 +142,15 @@
       </div>
     </div>
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>
+    $('.hider_btn').click(function(e) {
+      var $target = $(e.target),
+          content = $target.closest('.hider').find('.hider_content');
+      $target.hide();
+      content.fadeIn();
+    });
+  </script>
 </body>
 </html>

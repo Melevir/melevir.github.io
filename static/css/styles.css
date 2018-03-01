@@ -94,3 +94,13 @@ p {
 .badge_wrapper:hover>.text {
     display: block;
 }
+
+.hider_content {
+    display: none;
+}
+
+.hider_btn {
+    cursor: pointer;
+    border-bottom: 1px dotted #9b3dca;
+    color: #9b3dca;
+}

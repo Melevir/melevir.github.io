@@ -29,6 +29,7 @@ h3 {
 .subscribe_well {
     border-left: .3rem solid #9b4dca;
     padding-left: 30px;
+    margin-top: 15px;
 }
 
 .footer {
@@ -124,4 +125,16 @@ li:before {
 li.success:before {
     content: '✓ ';
     color: green;
+}
+
+.likely {
+    min-height: 32px;
+}
+
+h1.topic_title {
+    margin-bottom: 0;
+}
+
+.topic_content {
+    margin-top: 10px;
 }

@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
+  <h1 class="topic_title">
     {% block topic_name %}{% endblock %}
     <a href="/">←&nbsp;к&nbsp;списку&nbsp;уроков</a>
   </h1>
+
+  {% include 'partials/social_share.html' %}
 
   <div class="topic_content" data-topic-id="{% block topic_id %}{% endblock %}">
     {% block topic_content %}{% endblock %}

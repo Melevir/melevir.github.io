@@ -1,3 +1,11 @@
 {
-    "prettify": true
+    "prettify": true,
+    "fingerprint": [
+        "js",
+        "css"
+    ],
+    "optimize": [
+        "js",
+        "css"
+    ]
 }

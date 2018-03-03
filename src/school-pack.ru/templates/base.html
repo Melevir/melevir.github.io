@@ -7,27 +7,28 @@
   <meta name="description" content="" />
   <meta name="yandex-verification" content="eb0a76d90d251b60" />
   <link rel="icon" type="image/png" sizes="32x32" href="/static/images/graduate.png"/>
+  <link rel="canonical" href="{{ CURRENT_PAGE.absolute_final_url }}" />
 
 
   <meta property="og:type" content="website"/>
   <meta property="og:locale" content="ru_RU"/>
-  <meta name="twitter:domain" content="melevir.github.io"/>
+  <meta name="twitter:domain" content="{{ DOMAIN }}"/>
   <meta name="twitter:creator" content="melevir@python.ru"/>
   <meta property="og:site_name" content="Школа+"/>
   <meta name="twitter:site" content="Школа+"/>
-  <meta property="og:url" content="https://melevir.github.io/"/>
-  <meta name="twitter:url" content="https://melevir.github.io/"/>
+  <meta property="og:url" content="{{ DOMAIN }}"/>
+  <meta name="twitter:url" content="{{ DOMAIN }}"/>
   <meta property="og:title" content="Школа+"/>
   <meta property="og:description" content="Учимся тому, чему не учат в школе"/>
-  <meta property="og:image" content="https://melevir.github.io/static/images/school_plus_fb.png"/>
-  <meta property="og:image:secure_url" content="https://melevir.github.io/static/images/school_plus_fb.png"/>
+  <meta property="og:image" content="{{ DOMAIN }}static/images/school_plus_fb.png"/>
+  <meta property="og:image:secure_url" content="{{ DOMAIN }}static/images/school_plus_fb.png"/>
   <meta property="og:image:type" content="image/png"/>
   <meta property="og:image:width" content="600"/>
   <meta property="og:image:height" content="315"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="Школа+"/>
   <meta name="twitter:description" content="Учимся тому, чему не учат в школе"/>
-  <meta name="twitter:image:src" content="https://melevir.github.io/static/images/school_plus_fb.png"/>
+  <meta name="twitter:image:src" content="{{ DOMAIN }}static/images/school_plus_fb.png"/>
 
 
   <title>Школа+</title>
@@ -35,8 +36,8 @@
   <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
   <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-  <link href="/static/css/styles.css" rel="stylesheet">
-  <link href="/static/vendor/likely_2_3/likely.css" rel="stylesheet">
+  <link href="{% static '/css/styles.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/likely_2_3/likely.css' %}" rel="stylesheet">
 
 </head>
 <body>
@@ -59,100 +60,7 @@
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="/static/vendor/likely_2_3/likely.js"></script>
-  <script>
-    var localstorageKeyName = 'studentPackMaterialsStat',
-      getCurrentStat = function() {
-      var stat = localStorage.getItem(localstorageKeyName);
-      if (stat == undefined) {
-        return {}
-      } else {
-          return JSON.parse(stat);
-      }
-    },
-    updateItemState = function(topic, subtopic, item, newState) {
-      var stat = getCurrentStat();
-
-      stat[topic] = stat[topic] || {};
-      stat[topic][subtopic] = stat[topic][subtopic] || {};
-      stat[topic][subtopic][item] = stat[topic][subtopic][item] || {};
-
-      stat[topic][subtopic][item] = {state: newState};
-      localStorage.setItem(localstorageKeyName, JSON.stringify(stat));
-    },
-    getItemStatus = function(stat, topic, subtopic, item) {
-      stat[topic] = stat[topic] || {};
-      stat[topic][subtopic] = stat[topic][subtopic] || {};
-      stat[topic][subtopic][item] = stat[topic][subtopic][item] || {};
-
-      var itemStat = stat[topic][subtopic][item];
-      if (itemStat != undefined) {
-          return itemStat.state;
-      }
-    },
-    redrawMaterialItem = function($li, materialsStat) {
-      var subtopicId = $li.closest('ul').data('subtopicId').toString(),
-        topicId = $('.topic_content').data('topicId').toString(),
-        itemId = $li.data('itemId').toString(),
-        itemStatus = getItemStatus(materialsStat, topicId, subtopicId, itemId);
-      if (itemStatus == 'got_it') {
-          $li.addClass('success');
-      } else if (itemStatus == 'visited') {
-          $li.append('<span class="got_it_btn">✓ я понял</span>');
-      }
-    },
-    updateMaterialsStatuses = function() {
-      var materialLists = $('.topic_content').find('ul'),
-        materialsStat = getCurrentStat(),
-        itemId,
-        $ul,
-        $li,
-        subtopicId;
-
-      $.each(materialLists, function(index, ul) {
-        $ul = $(ul);
-        subtopicId = $ul.data('subtopicId');
-        if(subtopicId != undefined) {
-          $.each($ul.find('li'), function(index, li) {
-            $li = $(li);
-            itemId = $li.data('itemId').toString();
-            redrawMaterialItem($li, materialsStat);
-          });
-        }
-      });
-    };
-
-    $('.hider_btn').click(function(e) {
-      var $target = $(e.target),
-          content = $target.closest('.hider').find('.hider_content');
-      $target.hide();
-      content.fadeIn();
-    });
-
-    $('body').on('click', '.got_it_btn', function(e) {
-       var $target = $(e.target),
-         li = $target.closest('li'),
-         itemId = li.data('itemId'),
-         subtopicId = $target.closest('ul').data('subtopicId'),
-         topicId = $('.topic_content').data('topicId');
-
-       updateItemState(topicId, subtopicId, itemId, 'got_it');
-       redrawMaterialItem($(li), getCurrentStat());
-       $target.fadeOut();
-    });
-
-    $('.topic_content li>a').click(function(e) {
-       var $target = $(e.target),
-         li = $target.closest('li'),
-         itemId = li.data('itemId'),
-         subtopicId = $target.closest('ul').data('subtopicId'),
-         topicId = $('.topic_content').data('topicId');
-
-       updateItemState(topicId, subtopicId, itemId, 'visited');
-       redrawMaterialItem($(li), getCurrentStat());
-    });
-
-    updateMaterialsStatuses();
-  </script>
+  <script src="{% static '/vendor/likely_2_3/likely.js' %}"></script>
+  <script src="{% static '/js/main.js' %}"></script>
 </body>
 </html>

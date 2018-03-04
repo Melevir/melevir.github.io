@@ -26,6 +26,14 @@ h3 {
     color: lightgray;
 }
 
+
+@media (max-width: 500px) {
+    #mc_embed_signup input[type="email"] {
+        width: 100%;
+    }
+}
+
+
 .subscribe_well {
     border-left: .3rem solid #9b4dca;
     padding-left: 30px;
